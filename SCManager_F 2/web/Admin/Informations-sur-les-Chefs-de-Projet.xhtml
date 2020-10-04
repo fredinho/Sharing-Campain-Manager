@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+
+            
+
+            <ui:define name="content">
+                <c:if  test="#{facesContext.externalContext.sessionMap.get('nom')==null}">
+                    #{facesContext.externalContext.redirect("../Acceuil.xhtml")}
+                </c:if>
+                #{personneBean.allchefprojet()}
+                <p:fieldset legend="Liste des Chefs de Projet">
+                    <p:dataTable paginator="true" value="#{personneBean.persList}" var="ad" rowKey="#{ad.IDPersonne}" rows="10">
+                <p:column selectionMode="multiple"/>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Province"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.IDArrondissement.IDDepartement.IDProvince.nomProvince}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Département"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.IDArrondissement.IDDepartement.nomDepartement}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Arrondissement"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.IDArrondissement.nomArrondissement}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nom"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.nomPersonne}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Prenom"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.prenomPersonne}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Date de Naissance"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.dateNaissance}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Pseudo"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.pseudo}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Mot de Passe"/>
+                    </f:facet>
+                    <h:outputText value="****************" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email"/>
+                    </f:facet>
+                    <h:outputText value="#{ad.email}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Options"/>
+                    </f:facet>
+                    <p:commandLink value="supp" />
+                </p:column>
+                </p:dataTable><br/>
+                <p:commandButton value="Delete All Selections"/>
+                </p:fieldset>
+            </ui:define>
+
+          
+
+        </ui:composition>
+
+    </body>
+</html>

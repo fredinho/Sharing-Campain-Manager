@@ -1,0 +1,259 @@
+/* 
+    Document   : StyleAdmin
+    Created on : 3 janv. 2013, 01:45:56
+    Author     : FREDINHO
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body {
+    background: url("../img/bg.jpg") repeat;
+    font-family: century gothic,Arial;
+}
+#top {
+    background: url("../img/headerops.jpg") repeat-x;
+    height: 97px;
+    border-radius: 16px 16px 16px 16px;
+    
+}
+#logo {
+    background: url("../img/logoSCM2.png") no-repeat; 
+    height: 97px;
+    width: 329px;
+}
+#bottom {
+    background: url("../img/footerops.jpg") repeat-x;
+    height: 68px ;
+}
+#topmenu{
+	width: 100%;
+	margin: 0;
+	padding: 10px 0 0 0;
+	list-style: none;  
+	background: #111;
+	background: -moz-linear-gradient(#444, #111); 
+        background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));	
+	background: -webkit-linear-gradient(#444, #111);	
+	background: -o-linear-gradient(#444, #111);
+	background: -ms-linear-gradient(#444, #111);
+	background: linear-gradient(#444, #111);
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	-moz-box-shadow: 0 2px 1px #9c9c9c;
+	-webkit-box-shadow: 0 2px 1px #9c9c9c;
+	box-shadow: 0 2px 1px #9c9c9c;
+}
+
+#topmenu li{
+	float: left;
+	padding: 0 0 10px 0;
+	position: relative;
+}
+
+#topmenu a{
+	float: left;
+	height: 25px;
+	padding: 0 25px;
+	color: #999;
+	text-transform: uppercase;
+	font: bold 12px/25px Arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+}
+
+#topmenu li:hover > a{
+	color: #fafafa;
+}
+
+*html #topmenu li a:hover{ /* IE6 */
+	color: #fafafa;
+}
+
+#topmenu li:hover > ul{
+	display: block;
+}
+
+/* Sub-topmenu */
+
+#topmenu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;    
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    z-index: 99999;    
+    background: #444;
+    background: -moz-linear-gradient(#444, #111);
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
+    background: -webkit-linear-gradient(#444, #111);    
+    background: -o-linear-gradient(#444, #111);	
+    background: -ms-linear-gradient(#444, #111);	
+    background: linear-gradient(#444, #111);	
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#topmenu ul li{
+    float: none;
+    margin: 0;
+    padding: 0;
+    display: block;  
+    -moz-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    -webkit-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+}
+
+#topmenu ul li:last-child{   
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;    
+}
+
+#topmenu ul a{    
+    padding: 10px;
+    height: auto;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    float: none;
+    text-transform: none;
+}
+
+*html #topmenu ul a{ /* IE6 */   
+	height: 10px;
+	width: 150px;
+}
+
+*:first-child+html #topmenu ul a{ /* IE7 */    
+	height: 10px;
+	width: 150px;
+}
+
+#topmenu ul a:hover{
+        background: #0186ba;
+	background: -moz-linear-gradient(#04acec,  #0186ba);	
+	background: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+	background: -webkit-linear-gradient(#04acec,  #0186ba);
+	background: -o-linear-gradient(#04acec,  #0186ba);
+	background: -ms-linear-gradient(#04acec,  #0186ba);
+	background: linear-gradient(#04acec,  #0186ba);
+        background-color: #FFFFFF;
+}
+
+#topmenu ul li:first-child a{
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+#topmenu ul li:first-child a:after{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #444;
+}
+
+#topmenu ul li:first-child a:hover:after{
+    border-bottom-color: #04acec; 
+}
+
+#topmenu ul li:last-child a{
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Clear floated elements */
+#topmenu:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+* html #topmenu             { zoom: 1; } /* IE6 */
+*:first-child+html #topmenu { zoom: 1; } /* IE7 */
+ 
+.txtfld{
+    background: url("../img/input-bg.png") repeat-x scroll 0 0 #F9F9F9;
+    border: 1px solid #939393;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 4px -2px #939393;
+    color: #77746E;
+    font: 11px century gothic,Arial,Helvetica,sans-serif;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 5px;
+	width:142px;
+
+}
+input[type="text"], input[type="password"], input[type="textarea"] {
+    background: url("../img/input-bg.png") repeat-x scroll 0 0 #F9F9F9;
+    border: 1px solid #939393;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 4px -2px #939393;
+    color: #77746E;
+    font: 12px Arial,Helvetica,sans-serif;
+    height: 28px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    min-width: 310px;
+    padding: 3px 1px 2px 6px;
+}
+.btn{
+width:142px;
+    -moz-transition: all 0.2s linear 0s;
+    background: none repeat scroll 0 0 #3D9DB3;
+    border: 1px solid #1C6C7A;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0 0 0 3px #FEFEFE, 0 5px 3px 3px #D2D2D2;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: century gothic,tahoma,Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 8px 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    height:30px;
+}
+#menu{
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+#droit{
+    float: right;
+    height: 97px;
+    margin-top: -102px;
+    width: 320px;
+}
+.date{
+  color: #000000;
+  font-size: 16px;
+  margin-left: 80px;
+}
+.nom{
+  color: #000000;
+  font-size: 16px;
+}
+.topmenu_button :hover{
+margin-top:3px;    
+}
+#inner-foot{
+ background: url("../img/inner-foot.png") no-repeat scroll 0 0 transparent;
+    height: 57px;
+    margin: auto;
+    width: 273px;   
+}
+

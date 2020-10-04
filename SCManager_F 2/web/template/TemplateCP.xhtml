@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/StyleCP.css" rel="stylesheet" type="text/css" />
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <div id="logo"></div>
+            <div id="droit">
+                <br/>
+                <span class="date">25/01/2013  |  14:30  |  <img class="topmenu_button" src="./../resources/img/lang-fr.png"/><img class="topmenu_button" src="./../resources/img/lang-en.png"/> </span><br/>
+                <span class="nom"><img src="./../resources/img/menu_client.png"/>  | Bonjour HILARION PEPSY |  <img class="topmenu_button" src="./../resources/img/deconnexion-hover.png"/></span></div>
+            <div id="Menu">
+                <ul id="topmenu">
+	<li><a href="../faces/ChefProjet/Suivi-des-agents-de-Recensement.xhtml">Suivi des Agents de Recensements</a></li>
+        <li><a href="../faces/ChefProjet/Simulation-de-la-Campagne-de-distribution.xhtml">Simulation de la Campagne de Distribution</a></li>
+        <li><a href="../faces/ChefProjet/Evolution-de-la-Campagne.xhtml">Evolution de la Campagne</a></li>
+        </ul>
+            </div>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+        <div id="bottom">
+            <div id="inner-foot"></div>
+        </div>
+
+    </h:body>
+
+</html>

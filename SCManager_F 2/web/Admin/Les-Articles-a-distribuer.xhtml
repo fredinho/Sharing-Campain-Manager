@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+            <ui:define name="content">
+                <c:if  test="#{facesContext.externalContext.sessionMap.get('nom')==null}">
+                    #{facesContext.externalContext.redirect("../Acceuil.xhtml")}
+                </c:if>
+                <h:form>
+                #{articleBean.recupererArt()}
+                    <p:fieldset legend="Liste des Articles">
+                        <p:dataTable paginator="true" rows="10" var="art" editable="true" emptyMessage="Pas d'article" value="#{articleBean.model}" selection="#{articleBean.selection}" rowKey="#{art.idArticle}">
+                            <p:column selectionMode="multiple"/>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nom de l'Article"/>
+                                </f:facet>
+                                <h:outputText value="#{art.designation}" />
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nom du Founisseur"/>
+                                </f:facet>
+                                <h:outputText value="#{art.IDOrganisme.nomOrganisme}" />
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Options"/>
+                                </f:facet>
+                                <h:outputText value="hhkhjkj" />
+                            </p:column>
+                            <f:facet name="footer">
+                                <h:commandLink value="Supprimmer article(s)" onclick="conDail.show()"/>
+                            </f:facet>
+                        </p:dataTable><br/>
+                        <h:form id="fom2" prependId="false">
+                            <p:confirmDialog appendToBody="true" message="ete-vous sure de vouloir supprimer cet/ces article(s)" header="Confirm" widgetVar="conDail"  style="font-size: 8pt; text-align: center;">
+                                <p:commandButton ajax="false" value="Annuler" onclick="conDail.hide();"/>
+                                <p:spacer width="10px"/>
+                                <p:commandButton ajax="false" value="Supprimer" actionListener="#{articleBean.supprimer()}" onclick="conDail.hide();" style="font-size: 8pt; text-align: center;" />
+                            </p:confirmDialog>
+                        </h:form>
+                    </p:fieldset>
+                <br/> <br/>
+                <h:form>
+                    <p:fieldset legend="Ajouter des Articles">
+                        <p:panel widgetVar="f">
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Nom de l'Article"/>
+                                <p:inputText value="#{articleBean.nomart}"/>
+                                <h:outputText value="Nom du Fournisseur"/>
+                                <p:selectOneMenu value="#{articleBean.org}">
+                                    <f:selectItems value="#{articleBean.listart}" var="f" itemLabel="#{f.IDOrganisme.nomOrganisme}" itemValue="#{f.IDOrganisme.IDOrganisme}"/>
+                                </p:selectOneMenu>
+                                <p:commandButton ajax="false" value="Ajouter" action="#{articleBean.ajouter()}"/>
+                            </h:panelGrid>
+                         </p:panel>
+                    </p:fieldset>
+                </h:form>
+                </h:form>
+             </ui:define>
+         </ui:composition>
+    </body>
+</html>

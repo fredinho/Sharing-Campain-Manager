@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+
+            <ui:define name="content">
+                
+                #{organismeBean.allorganisme()}
+                <p:fieldset legend="Liste des Arrondissements">
+                    <p:dataTable value="#{organismeBean.orgaList}" var="org" rowKey="#{org.IDOrganisme}" selection="#{organismeBean.selection}" paginator="true" rows="10" widgetVar="#">
+                <p:column selectionMode="multiple"/>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nom de l'Organisme"/>
+                    </f:facet>
+                    <h:outputText value="#{org.nomOrganisme}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Adresse"/>
+                    </f:facet>
+                    <h:outputText value="#{org.residence}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Options"/>
+                    </f:facet>
+                    <p:rowEditor />
+                </p:column>
+                    
+            </p:dataTable><br/>
+            <p:commandButton value="Delete All Selections"/>
+            </p:fieldset>
+            <br /><br /><br />
+            <p:fieldset legend="Ajouter des Arrondissements">
+            <h:form>
+                <p:panel widgetVar="f">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Nom de l'Organisme"/>
+                    <p:inputText value="#{organismeBean.nomOrg}"/>
+                    <h:outputText value="Adresse"/>
+                    <p:inputText value="#{organismeBean.adr}"/>
+                    <p:commandButton ajax="false" value="Ajouter" action="#{organismeBean.addprovince()}"/>
+                </h:panelGrid>
+                </p:panel>
+            </h:form>
+            </p:fieldset>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

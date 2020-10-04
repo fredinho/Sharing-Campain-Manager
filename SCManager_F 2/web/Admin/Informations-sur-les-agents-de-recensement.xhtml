@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+
+           
+
+            <ui:define name="content">
+                <c:if  test="#{facesContext.externalContext.sessionMap.get('nom')==null}">
+                    #{facesContext.externalContext.redirect("../Acceuil.xhtml")}
+                </c:if>
+                #{recenseurBean.allrecenseur()}
+                #{provinceBean.allprovince()}
+                #{departementBean.alldep()}
+                #{arrondissementBean.allarron()}
+                #{quartierBean.allquart()}
+                <p:fieldset legend="Liste des Agents de recensement">
+                    <p:dataTable paginator="true" value="#{recenseurBean.listrec}" var="rec" rowKey="#{rec.IDRecenseur}" rows="10">
+                <p:column selectionMode="multiple"/>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Province"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.IDQuartier.IDArrondissement.IDDepartement.IDProvince.nomProvince}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Département"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.IDQuartier.IDArrondissement.IDDepartement.nomDepartement}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Arrondissement"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.IDQuartier.IDArrondissement.nomArrondissement}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nom"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.nomRecenseur}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Prenom"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.prenomRecenseur}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Date de Naissance"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.dateNaissance}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Numero de CNI"/>
+                    </f:facet>
+                    <h:outputText value="#{rec.numeroCNI}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Options"/>
+                    </f:facet>
+                    <p:commandLink value="supp" />
+                </p:column>
+              
+            </p:dataTable><br/>
+                <p:commandButton value="Delete All Selections"/>
+            </p:fieldset>
+                <br /><br /><br />
+                <p:fieldset legend="Ajouter des Agents de recensement">
+                <h:form>
+                     <p:panel widgetVar="f">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Province"/>
+                    <p:selectOneMenu value="">
+                        <f:selectItems value="#{provinceBean.provList}" var="f" itemLabel="#{f.nomProvince}" itemValue="#{f.IDProvince}"/>
+                    </p:selectOneMenu>
+                    <h:outputText value="Departement"/>
+                    <p:selectOneMenu value="">
+                        <f:selectItems value="#{departementBean.depList}" var="de" itemLabel="#{de.nomDepartement}" itemValue="#{de.IDDepartement}"/>
+                    </p:selectOneMenu>
+                    <h:outputText value="Arrondissement"/>
+                     <p:selectOneMenu value="">
+                         <f:selectItems value="#{arrondissementBean.arronList}}" var="arr" itemLabel="#{arr.nomArrondissement}" itemValue="#{arr.IDArrondissement}"/>
+                    </p:selectOneMenu>
+                    <h:outputText value="Nom"/>
+                    <p:inputText value=""/>
+                    <h:outputText value="Prenom"/>
+                    <p:inputText value=""/>
+                    <h:outputText value="Date de Naissance"/>
+                    <p:inputText value=""/>
+                    <h:outputText value="Numero de CNI"/>
+                    <p:inputText value=""/>
+                    <p:commandButton ajax="false" value="Ajouter" action="#"/>
+                </h:panelGrid>
+            </p:panel>
+                </h:form>
+            </p:fieldset>
+            </ui:define>
+
+            
+            
+
+        </ui:composition>
+
+    </body>
+</html>

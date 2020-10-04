@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+        
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+            <ui:define name="content">
+                <c:if  test="#{facesContext.externalContext.sessionMap.get('nom')==null}">
+                    #{facesContext.externalContext.redirect("../Acceuil.xhtml")}
+                </c:if>
+            <h:form>
+                #{arrondissementBean.allarron()}
+                #{departementBean.alldep()}
+                <p:fieldset legend="Liste des Arrondissements">
+                    <p:dataTable paginator="true" rows="10" value="#{arrondissementBean.model}" rowKey="#{ar.IDArrondissement}" var="ar">
+                <p:column selectionMode="multiple"/>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Province"/>
+                    </f:facet>
+                <p:cellEditor>
+                    <f:facet name="output">
+                    <h:outputText value="#{ar.IDDepartement.IDProvince.nomProvince}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <h:inputText />
+                    </f:facet>
+                </p:cellEditor>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Departement"/>
+                    </f:facet>
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{ar.IDDepartement.nomDepartement}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <h:inputText />
+                    </f:facet>
+                </p:cellEditor>
+                </p:column>
+               <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Arrondissement"/>
+                    </f:facet>
+                <p:cellEditor>
+                    <f:facet name="output">
+                   <h:outputText value="#{ar.nomArrondissement}" />
+                    </f:facet>
+                    <f:facet name="input">
+                        <h:inputText />
+                    </f:facet>
+                </p:cellEditor>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Options"/>
+                    </f:facet>
+                    <p:rowEditor />
+                    <!--<p:spacer width="12"/>
+                    <h:outputText value="|" />
+                    <p:spacer width="12"/>
+                    <p:commandLink value="supp"/>-->
+                </p:column>
+            </p:dataTable><br/>
+                    <p:commandButton value="Delete All Selections"/>
+            </p:fieldset>
+            <br/><br/><br/>
+            <p:fieldset legend="Ajouter des Arrondissements">
+                 <p:panel widgetVar="f">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Departement"/>
+                        <p:selectOneMenu value="#{arrondissementBean.iddep}">
+                            <f:selectItem itemLabel="Choisir" itemValue="" />
+                            <f:selectItems value="#{departementBean.depList}" var="d" itemLabel="#{d.nomDepartement}" itemValue="#{d.IDDepartement}"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="Arrondissement"/>
+                        <p:inputText value="#{arrondissementBean.arrond}"/>
+                        <p:commandButton value="Ajouter" action="#{arrondissementBean.creerarrondissement()}"/>
+                    </h:panelGrid>
+                 </p:panel>
+            </p:fieldset>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

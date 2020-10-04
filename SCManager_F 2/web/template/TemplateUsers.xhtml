@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="content-language" content="fr" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<!-- ******* SCRIPTS FLASH INFO ****** -->		
+<script type="text/javascript" src="../resources/js/jquery.timer.js"></script>
+<script type="text/javascript" src="../resources/js/image-rotator.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/animate-custom.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/normalize.css" />
+
+<link rel="stylesheet" type="text/css" href="../resources/css/StyleUsers.css" />
+
+<link rel="stylesheet" type="text/css" href="../resources/css/demoAdmin.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/Acceuil.css" />
+
+		<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="../resources/css/style_ie.css" />
+		<![endif]-->
+		<!-- jQuery -->
+		<script type="text/javascript" src="../resources/js/JQuery1-7-2.js"></script> <br/><br/><br/>
+		<!-- jmpress plugin -->
+		<script type="text/javascript" src="../resources/js/jmpress.min.js"></script>
+		<!-- jmslideshow plugin : extends the jmpress plugin -->
+		<script type="text/javascript" src="../resources/js/jquery.jmslideshow.js"></script>
+		<script type="text/javascript" src="../resources/js/modernizr.custom.48780.js"></script>
+		<noscript>
+			<style>
+			.step {
+				width: 100%;
+				position: relative;
+			}
+			.step:not(.active) {
+				opacity: 1;
+				filter: alpha(opacity=99);
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=99)";
+			}
+			.step:not(.active) a.jms-link{
+				opacity: 1;
+				margin-top: 40px;
+			}
+			</style>
+		</noscript>
+<!-- ******* SCRIPTS FLASH INFO ****** -->
+<!--[if lt IE 10]> 
+<style>
+#menu li ul, #mentions,#reseaux,#partenaires,p.piedpage,#partenaires,#partenaires p.piedpage,.cadre,.petit_cadre,#pied,#drp,.info,.block,.dropdown_1column, .dropdown_2columns, .dropdown_3columns, .dropdown_4columns,.dropdown_5columns  {behavior: url(../resources/js/PIE.php);}
+</style>
+<![endif]-->
+        <title><ui:insert name="title">Facelets Template</ui:insert></title>
+    </h:head>
+
+    <h:body>
+        <div id="conteneur">
+          <div id="header">
+ 	
+<!-- **************************************** MENU ***************************************** -->	 
+<ul id="topmenu">
+	<li><a href="../faces/Acceuil.xhtml">Accueil</a></li>
+        <li><a href="../faces/Presentation-de-la-campagne.xhtml">Présentation de la Campagne</a></li>
+        <li><a href="../faces/Les-Sites-de-distribution-disponible.xhtml">Site de Distribution</a></li>
+        <li><a href="../faces/Recherche-des-sites-disponibles.xhtml">Recherche des Sites</a></li>
+        <li><a href="../faces/Connexion.xhtml">Zone Administrative</a></li>
+</ul>
+
+<section id="jms-slideshow" class="jms-slideshow">
+				<div class="step" data-color="color-2">
+					<div class="jms-content">
+						<h3>TOUS UNIS CONTRE LE PALUDISME</h3>
+					<p>N'oubliez pas de dormir sous les moustiquaires</p>
+						
+					</div>
+					<img src="../resources/img/11.png" />
+				</div>
+				<div class="step" data-color="color-3" data-y="900" data-rotate-x="80">
+					<div class="jms-content">
+						<h3>All Against Malaria</h3>
+					<p>Remenber to sleep under your mosquito nets tonight !</p>
+						
+					</div>
+					<img src="../resources/img/22.png" />
+				</div>
+				<div class="step" data-color="color-4" data-x="-100" data-z="1500" data-rotate="170">
+					<div class="jms-content">
+						<h3>No time to waste</h3>
+					<p>Within thine own bud buriest thy content and, tender churl, makest waste in niggarding</p>
+						
+					</div>
+					<img src="../resources/img/33.png" />
+				</div>
+				<div class="step" data-color="color-5" data-x="3000">
+					<div class="jms-content">
+						<h3>MOUSTIQUE</h3>
+					<p>Un Serial Killer tue un enfant toutes les 30 secondes en Afrique</p>
+						
+					</div>
+					<img src="../resources/img/44.png" />
+				</div>
+				<div class="step" data-color="color-1" data-x="4500" data-z="1000" data-rotate-y="45">
+					<div class="jms-content">
+						<h3>X-MALEYA</h3>
+					<p>Ambassadeur de la lutte contre le paludisme au Cameroun</p>
+						
+					</div>
+					<img src="../resources/img/55.png" />
+				</div>
+			</section>
+<!-- **************************************** MENU ***************************************** -->  	
+			</div>	 <br/> 
+        
+    
+            <div id="contenu">
+            
+            <ui:insert name="content">EDIMO A REUSSI</ui:insert>
+           
+             
+         
+         <img src="../resources/img/sepa.jpg" alt="" style="margin:30px 0 0 0"/>
+			 <div id="mentions">	
+			     <P class="piedpage">Mentions légales</P>
+				 <a href=""> www.SCManager.com</a> <br />
+				 <!-- MENTION DE COPYRIGHT NE PAS RETIRER SANS AUTORISATION ÉCRITE -->
+				 ©Design <a href="http://www.kitgraphiquegratuit.org" onclick="window.open(this.href); return false;" title="kits graphiques gratuits" > Kits graphiques</a> 
+				 <!-- MENTION DE COPYRIGHT NE PAS RETIRER SANS AUTORISATION ÉCRITE -->
+		    </div>
+
+			 <div id="reseaux">	
+			     <P class="piedpage">Nous suivre</P>
+					<a href="" title=""><img style="margin:8px 0 0 0" src="../resources/img/twitter.png" alt=""/></a>
+					<a href="" title=""><img style="margin:8px 0 0 0"  src="../resources/img/facebook.png" alt=""/></a>
+					<a href="" title=""><img style="margin:8px 0 0 0"  src="../resources/img/rss.png" alt=""/></a>
+					
+					<a href="" title=""><img style="margin:8px 0 0 0"  src="../resources/img/youtube.png" alt=""/></a>			
+		    </div>
+			
+			 <div id="partenaires">	
+			     <P class="piedpage">Tous les partenaires du site</P>
+ 			     <table summary="" class="centre"  cellpadding="0" cellspacing="0"><tr><td >
+				    <ul>
+					   <li><a href="" title="">MINSANTE</a></li>
+					   <li><a href="" title="">COTCO</a></li>
+					</ul>
+					
+				    <ul>
+					   <li><a href="" title="">EXXON MOBIL</a></li>
+					   <li><a href="" title="">MTN CAMEROON</a></li>
+					</ul>
+
+				    	
+ 			     </td></tr></table>
+		    </div>
+         <div style="clear:both"></div><!-- **** NE PAS SUPRIMER **** -->
+	   </div>  
+<!-- *************************************** CONTENU **************************************** -->  
+<!-- ***************************************** PIED ****************************************** -->	 
+            <div id="pied"></div> 
+<!-- ***************************************** PIED ****************************************** -->
+<!-- ********************************* LIEN DE PIED DE PAGE ********************************** -->
+			
+</div>
+<script type="text/javascript">
+			$(function() {
+				
+				var jmpressOpts	= {
+					animation		: { transitionDuration : '0.8s' }
+				};
+				
+				$( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
+					autoplay	: true,
+					bgColorSpeed: '0.8s',
+					arrows		: false
+				}));
+				
+			});
+		</script>
+    
+           
+    </h:body>
+
+</html>

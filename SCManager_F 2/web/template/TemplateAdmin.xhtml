@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/StyleAdmin.css" rel="stylesheet" type="text/css" />
+            <!-- Stylesheets: Screen, Projection -->
+    <link href="css/dropdown-layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="css/dropdown-style.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    
+    <!--[if IE 6]>
+      <script src="javascripts/ie.pngfix.js" type="text/javascript"></script>
+      <script>DD_belatedPNG.fix('li, #logo a, #main, #preview, .post-data span, blockquote, .lightbox-image, .dropcap-circle, .breadcrumbs span.info');</script>
+      <style>li, #footer .nav li a, #sidebar .nav li a {zoom:1}</style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <style>#showcase .rounded-corners-top, #showcase .rounded-corners-bottom {display: none}</style>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+ 
+        
+    <!-- Superfish -->
+    <script src="js/jquery.superfish.js" type="text/javascript"></script>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <div id="logo"></div>
+            <div id="droit">
+                <br/>
+                <span class="date"><h:outputText value="#{connexion.datjr}"/><img class="topmenu_button" src="./../resources/img/lang-fr.png"/><img class="topmenu_button" src="./../resources/img/lang-en.png"/> </span><br/>
+                <span class="nom"><img src="./../resources/img/menu_client.png"/>  | Bonjour <h:outputText value="Bienvenue #{facesContext.externalContext.sessionMap.get('prenom')} #{facesContext.externalContext.sessionMap.get('nom')}" /> |  <h:link outcome="connexion"><p:graphicImage library="img" name="deconnexion-hover.png" width="25"/></h:link>
+                </span>    
+            </div>
+                
+            
+            <div id="droit"></div>
+        </div>
+            <div id="menu">
+                <ul id="topmenu">
+	<li><a href="../faces/Aceuil.xhtml"></a></li>
+        <li><a href="../faces/Presentation-de-la-campagne.xhtml">Présentation de la Campagne</a></li>
+        <li><a href="../faces/Les-Sites-de-distribution-disponible.xhtml">Site de Distribution</a></li>
+        <li><a href="../faces/Recherche-des-sites-disponibles.xhtml">Recherche des Sites</a></li>
+        <li><a href="../faces/Connexion.xhtml">Zone Administrative</a></li>
+</ul>
+                
+            </div>
+        
+
+        <div id="content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+            <div id="menu">
+                <ul id="topmenu">
+	<li><a href="../faces/Informations-sur-la-Campagne.xhtml">Campagnes</a></li>
+        <li><a href="../faces/Informations-sur-les-agents-de-recensement.xhtml">Agents de Recensements</a></li>
+        <li><a href="../faces/Les-Administrateurs-de-l'Application.xhtml">Administrateur de SCManager</a>
+        <ul>
+			<li><a href="../faces/Informations-sur-les-Operateurs-de-Saisies.xhtml">Operateur de Saisie</a></li>
+			<li><a href="../faces/Informations-sur-les-Chefs-de-Projet.xhtml">Chef de projet</a></li>
+			<li><a href="../faces/Informations-sur-les-Administrateurs.xhtml">Sous-Administrateur</a></li>
+	</ul>
+        </li>
+        <li><a href="../faces/Les-Articles-a-distribuer.xhtml">Articles</a></li>
+        <li><a href="../faces/Organismes.xhtml">Organisme</a></li>
+        <li><a href="#">Zone de déroulement de la campagne</a>
+        <ul>
+			<li><a href="../faces/Provinces.xhtml">Provinces</a></li>
+			<li><a href="../faces/Departements.xhtml">Département</a></li>
+			<li><a href="../faces/Arrondissements.xhtml">Arrondissement</a></li>
+                        <li><a href="../faces/Connexion.xhtml">Quartier</a></li>
+                        <li><a href="../faces/Sites-de-Distribution.xhtml">Point de Retrait</a></li>
+	</ul>
+        </li>
+</ul>
+                
+            </div>
+        
+
+        <div id="content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+        <div id="bottom">
+            <div id="inner-foot"></div>
+        </div>
+
+    </h:body>
+
+</html>

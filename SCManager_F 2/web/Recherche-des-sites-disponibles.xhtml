@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./template/TemplateUsers.xhtml">
+
+            <ui:define name="content">
+                <div id="contenu"> 
+
+<!-- ************************************ COLONNE GAUCHE ************************************ -->
+<div id="colonne_gauche">
+
+<div class="cadre">
+    <img src="./resources/img/liste.png" alt="logoSCManager" style="float:left; margin:10px 10px 0 300px;"  />
+    <h1>recherche sites</h1>
+    <h2 style="margin-left:150px;">Recherche des sites de distributions par zones</h2>
+    <br /><br /><br /><br />	
+
+    #{pointdeRetraitBean.allpointretrait()}
+    
+       				  
+    <h:form id="mainform" prependId="false">
+                          <p:dataTable var="dist" rowKey="art.IDArticle" value="#{pointdeRetraitBean.lptr}" paginator="true" rows="10">
+                              <p:column filterBy="#{dist.IDQuartier.IDArrondissement.IDDepartement.IDProvince.nomProvince}">
+                         <f:facet name="header">
+                             <h:outputText value="Province" />
+                         </f:facet>
+                            <h:outputText value="#{dist.IDQuartier.IDArrondissement.IDDepartement.IDProvince.nomProvince}"/>
+                        </p:column>
+                              <p:column filterBy="#{dist.IDQuartier.IDArrondissement.IDDepartement.nomDepartement}">
+                         <f:facet name="header">
+                             <h:outputText value="Departement"/>
+                         </f:facet>
+                            <h:outputText value="#{dist.IDQuartier.IDArrondissement.IDDepartement.nomDepartement}"/>
+                        </p:column>
+                              <p:column filterBy="#{dist.IDQuartier.IDArrondissement.nomArrondissement}">
+                             <f:facet name="header">
+                                 <h:outputText value="Arrondissement"/>
+                             </f:facet>
+                            <h:outputText value="#{dist.IDQuartier.IDArrondissement.nomArrondissement}"/>
+                            </p:column>
+                              <p:column filterBy="#{dist.IDQuartier.nomQuartier}">
+                             <f:facet name="header">
+                                 <h:outputText value="Quartier"/>
+                             </f:facet>
+                             <h:outputText value="#{dist.IDQuartier.nomQuartier}"/>
+                            </p:column>
+                              <p:column filterBy="#{dist.nomPointRetrait}">
+                         <f:facet name="header">
+                             <h:outputText value="Point de Retrait"/>
+                         </f:facet>
+                            <h:outputText value="#{dist.nomPointRetrait}"/>
+                        </p:column>
+                        <p:column>
+                         <f:facet name="header">
+                             <h:outputText value="Statut"/>
+                         </f:facet>
+                            <h:outputText value="#{dist.IDDisponibilite.nomDisponibilite}"/>
+                        </p:column>
+                    </p:dataTable>
+                    <!--  end product-table................................... --> 
+                    </h:form>
+            <!--  end product-table................................... --> 
+
+
+<!--  start actions-box ............................................... -->
+
+<!-- end actions-box........... -->
+
+<!--  start paging..................................................... -->
+
+<!--  end paging................ -->
+
+
+</div>
+</div>
+
+
+
+<!-- ************************************ COLONNE DROITE ************************************ -->
+	     
+<!-- ************************************ COLONNE DROITE ************************************ -->
+            
+			
+			 
+         
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

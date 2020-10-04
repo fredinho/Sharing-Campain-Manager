@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <body>
+        <ui:composition template="./../template/TemplateAdmin.xhtml">
+        
+            <ui:define name="content">
+                <c:if  test="#{facesContext.externalContext.sessionMap.get('nom')==null}">
+                    #{facesContext.externalContext.redirect("../Acceuil.xhtml")}
+                </c:if>
+            #{provinceBean.allprovince()}
+            #{departementBean.alldep()}
+            <h:form>
+                <p:fieldset legend="Liste des Departements">
+                    <p:dataTable paginator="true" value="#{departementBean.depList}" var="dep" rowKey="#{dep.IDDepartement}" rows="10">
+                <p:column selectionMode="multiple"/>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Province"/>
+                    </f:facet>
+                    <h:outputText value="#{dep.IDProvince.nomProvince}" />
+                </p:column>
+               <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nom departement"/>
+                    </f:facet>
+                   <h:outputText value="#{dep.nomDepartement}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Options"/>
+                    </f:facet>
+                    <p:rowEditor />
+                </p:column>
+                </p:dataTable> <br/>
+             <p:commandButton value="Delete All Selections"/>
+            </p:fieldset>
+                <br/><br/><br/>
+            <p:fieldset legend="Ajouter des Departements">
+                <p:panel>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Province"/>
+                        <p:selectOneMenu styleClass="txtfld" value="#{departementBean.idprov}" id="pr">
+                           <f:selectItem itemLabel="choisir" itemValue=""/>
+                           <f:selectItems value="#{provinceBean.provList}" var="p" itemLabel="#{p.nomProvince}" itemValue="#{p.IDProvince}"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="Nom Departement"/>
+                        <p:inputText value="#{departementBean.nomdep}"/>
+                        <p:commandButton value="Ajouter" action="#{departementBean.creerdepartement()}"/>
+                     </h:panelGrid>
+                  </p:panel>
+                </p:fieldset>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
